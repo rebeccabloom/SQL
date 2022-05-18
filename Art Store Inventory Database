@@ -1,0 +1,31 @@
+CREATE TABLE art_store (id INTEGER PRIMARY KEY, item TEXT, price INTEGER, aisle INTEGER, inventory INTEGER);
+
+INSERT INTO art_store VALUES (001, "M GRAHAMS WATERCOLOR SET", 48.95, 4, 6);
+INSERT INTO art_store VALUES (002, "M GRAHAMS GOUACHE SET", 38.95, 4, 3);
+INSERT INTO art_store VALUES (003, "WATERCOLOR FLAT BRUSH", 8.50, 3, 7);
+INSERT INTO art_store VALUES (004, "WATERCOLOR FILBERT BRUSH", 9.75, 3, 10);
+INSERT INTO art_store VALUES (005, "WATERCOLOR RIGGER BRUSH", 6.50, 3, 5);
+INSERT INTO art_store VALUES (006, "WATERCOLOR PALETTE", 10, 3, 4);
+INSERT INTO art_store VALUES (007, "WATERCOLOR A4 COLD PRESS PAPER", 15, 2, 25);
+INSERT INTO art_store VALUES (008, "WATERCOLOR A4 HOT PRESS PAPER", 20, 2, 25);
+INSERT INTO art_store VALUES (009, "PAINTERS TAPE", 5, 2, 6);
+INSERT INTO art_store VALUES (010, "WATERCOLOR MASKING FLUID", 7, 2, 7);
+INSERT INTO art_store VALUES (011, "SKETCH BOOK", 12, 2, 3);
+INSERT INTO art_store VALUES (012, "M GRAHAM CADMIUM YELLOW", 15, 2, 5);
+INSERT INTO art_store VALUES (013, "M GRAHAM CADMIUM RED", 15, 2, 2);
+INSERT INTO art_store VALUES (014, "M GRAHAM QUINACRIDONE RED", 10, 2, 5);
+INSERT INTO art_store VALUES (015, "M GRAHAM ULTRAMARINE BLUE", 10, 2, 6);
+INSERT INTO art_store VALUES (016, "M GRAHAM TITANIUM WHITE", 10, 2, 0);
+
+SELECT * FROM art_store;
+
+--identify items that have low inventory for restock
+SELECT * FROM art_store
+WHERE inventory < 3;
+
+--identify items by price from most expensive to least expensive
+SELECT item, price FROM art_store
+ORDER BY price DESC;
+
+--how much inventory does the store have to sell?
+SELECT SUM(inventory) FROM art_store;
