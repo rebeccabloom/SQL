@@ -1,0 +1,30 @@
+#This SQL code demonstrates database queries using databases holding Netflix data.
+
+#1. Query the amount of movies (not including tv series) in the database.
+SELECT count(*) AS "movie count"
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+WHERE type='Movie';
+
+#2. When was the most recent batch of tv series and/or movies added to the database?
+SELECT max(date(date_added)) AS "recent release date"
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info";
+
+#3. Alphabetical order of all movies and series in Netflix database.
+SELECT title
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+ORDER BY title ASC;
+
+#4. Query the director of the movie, "Bright Star"
+SELECT director
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info" titles
+LEFT JOIN "CharlotteChaze/BreakIntoTech"."netflix_people" people
+ON titles.show_id=people.show_id
+WHERE titles.title='Bright Star';
+
+#5. Query the oldest movie in the Netflix database.
+SELECT title, min(release_year)
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+WHERE type='Movie'
+GROUP BY title, release_year
+ORDER BY release_year ASC
+LIMIT 1;
