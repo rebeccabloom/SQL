@@ -1,3 +1,6 @@
+#In this SQL, I'm querying a database with multiple tables in it to quantify statistics about customer and order data.
+
+--Code to get a preliminary view of the table 
 SELECT * FROM BIT_DB.JanSales LIMIT 20;
 
 --How many orders were placed in January?
